@@ -18,9 +18,7 @@ namespace Homework7
         public double Ad { get; }
         public string Name { get; }
         public bool IsAlive => this.Hp > 0;
-
         public abstract double Attack();
-
         public abstract void Defense(Unit enemyUnit);
     }
 }
