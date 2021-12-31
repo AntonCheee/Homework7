@@ -7,7 +7,7 @@ namespace Homework7
         private const double HP = 120;
         private const double AD = 35;
 
-        private const double DODGE_ATTACK_CHANCE = 0.7;
+        private const double DODGE_ATTACK_CHANCE = 0.5;
         private const double UNSUCCESS_DODGE_CHANCE = 1.2;
 
         private const double CRITICAL_ATTACK_CHANCE = 0.33;

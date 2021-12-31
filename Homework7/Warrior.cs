@@ -5,9 +5,9 @@ namespace Homework7
     class Warrior : Unit
     {
         private const double HP = 200;
-        private const double AD = 20;
-        private const double ATTACK_DAMAGE_PERCENT = 0.5;
-        private const double DEFENCE_DAMAGE_PERCENT = 0.7;
+        private const double AD = 35;
+        private const double ATTACK_DAMAGE_PERCENT = 0.71;
+        private const double DEFENCE_DAMAGE_PERCENT = 0.5;
 
         public Warrior():base(AD, "Warrior" + Randomizer.RandomInt(1, 1000))
         {

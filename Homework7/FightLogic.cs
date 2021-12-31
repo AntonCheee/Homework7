@@ -29,10 +29,36 @@ namespace Homework7
             return unit;
         }
 
-        public static Unit FightTwoFighters()
+        public static Unit GenerateFighter(FighterType? fighterType)
         {
-            Unit unit1 = GenerateFighter();
-            Unit unit2 = GenerateFighter();
+            Unit unit;
+
+            switch (fighterType)
+            {
+                case FighterType.Warrior:
+                    unit = new Warrior();
+                    break;
+
+                case FighterType.Archer:
+                    unit = new Archer();
+                    break;
+
+                case FighterType.Wizard:
+                    unit = new Wizard();
+                    break;
+
+                default:
+                    unit = GenerateFighter();
+                    break;
+            }
+
+            return unit;
+        }
+
+        public static Unit FightOneOnOne(FighterType? fighter1Type = null, FighterType? fighter2Type = null)
+        {
+            Unit unit1 = fighter1Type != null ? GenerateFighter(fighter1Type) : GenerateFighter();
+            Unit unit2 = fighter2Type != null ? GenerateFighter(fighter2Type) : GenerateFighter();
 
             Unit winner;
 
@@ -64,18 +90,18 @@ namespace Homework7
             return winner;
         }
 
-        public static Group FightGroupByGroup(int countFighters)
+        public static Group FightGroupByGroup(int countFightersPerGroup)
         {
             List<Unit> group1Fighters = new List<Unit>();
 
-            for (int i = 0; i < countFighters; i++)
+            for (int i = 0; i < countFightersPerGroup; i++)
             {
                 group1Fighters.Add(GenerateFighter());
             }
 
             List<Unit> group2Fighters = new List<Unit>();
 
-            for (int i = 0; i < countFighters; i++)
+            for (int i = 0; i < countFightersPerGroup; i++)
             {
                 group2Fighters.Add(GenerateFighter());
             }
