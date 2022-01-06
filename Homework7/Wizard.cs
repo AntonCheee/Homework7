@@ -2,7 +2,7 @@
 
 namespace Homework7
 {
-    class Wizard : Unit
+    public class Wizard : Unit
     {
         private const double HP = 150;
         private const double AD = 50;
@@ -11,9 +11,8 @@ namespace Homework7
         private const double DODGE_ATTACK_CHANCE = 0.5;
         private const double UNSUCCESS_DODGE_CHANCE = 1;
 
-        public Wizard() : base(AD, "Wizard" + Randomizer.RandomInt(1, 1000))
+        public Wizard() : base(AD, HP)
         {
-            this.Hp = HP;
         }
 
         public override double Attack()

@@ -4,65 +4,58 @@ using System.Linq;
 
 namespace Homework7
 {
-    class FightLogic
+    public class FightLogic
     {
-        public static Unit GenerateFighter()
+        static Unit GenerateFighter(FighterType? fighterType = null)
         {
-            int randomIndex = Randomizer.RandomInt(0, 3);
             Unit unit;
 
-            switch (randomIndex)
+            if (fighterType is null)
+            {
+                int randomIndex = Randomizer.RandomInt(0, 3);
+
+                switch (randomIndex)
                 {
-                case 0:
-                    unit = new Warrior();
+                    case 0:
+                        unit = new Warrior();
+                        break;
+                    case 1:
+                        unit = new Archer();
+                        break;
+                    default:
+                        unit = new Wizard();
+                        break;
+                }
+            }
+            else
+            {
+                switch (fighterType)
+                {
+                    case FighterType.Warrior:
+                        unit = new Warrior();
                         break;
 
-                case 1:
-                    unit = new Archer();
-                    break;
+                    case FighterType.Archer:
+                        unit = new Archer();
+                        break;
 
-                default:
-                    unit = new Wizard();
-                    break;
+                    default:
+                        unit = new Wizard();
+                        break;
+                }
             }
 
             return unit;
         }
 
-        public static Unit GenerateFighter(FighterType? fighterType)
-        {
-            Unit unit;
-
-            switch (fighterType)
-            {
-                case FighterType.Warrior:
-                    unit = new Warrior();
-                    break;
-
-                case FighterType.Archer:
-                    unit = new Archer();
-                    break;
-
-                case FighterType.Wizard:
-                    unit = new Wizard();
-                    break;
-
-                default:
-                    unit = GenerateFighter();
-                    break;
-            }
-
-            return unit;
-        }
-
-        public static Unit FightOneOnOne(FighterType? fighter1Type = null, FighterType? fighter2Type = null)
+        static Unit FightOneOnOne(FighterType? fighter1Type = null, FighterType? fighter2Type = null)
         {
             Unit unit1 = fighter1Type != null ? GenerateFighter(fighter1Type) : GenerateFighter();
             Unit unit2 = fighter2Type != null ? GenerateFighter(fighter2Type) : GenerateFighter();
 
-            Unit winner;
+            Unit winner = unit1;
 
-            while (true)
+            while (unit1.IsAlive && unit2.IsAlive)
             {
                 if (Randomizer.RandomBool())
                 {
@@ -76,21 +69,13 @@ namespace Homework7
                 if (!unit1.IsAlive)
                 {
                     winner = unit2;
-                    break;
-                }
-
-
-                if (!unit2.IsAlive)
-                {
-                    winner = unit1;
-                    break;
                 }
             }
 
             return winner;
         }
 
-        public static Group FightGroupByGroup(int countFightersPerGroup)
+        static Group FightGroupByGroup(int countFightersPerGroup)
         {
             List<Unit> group1Fighters = new List<Unit>();
 

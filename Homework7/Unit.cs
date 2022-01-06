@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Homework7
 {
-    abstract class Unit
+    public abstract class Unit
     {
-        protected Unit(double ad, string name)
+        protected Unit(double ad, double hp)
         {
+            this.Hp = hp;
             this.Ad = ad;
-            this.Name = name;
         }
 
-        public double Hp { get; set; }
         public double Ad { get; }
+        public double Hp { get; private set; }
         public string Name { get; }
         public bool IsAlive => this.Hp > 0;
+
         public abstract double Attack();
         public abstract void Defense(Unit enemyUnit);
     }

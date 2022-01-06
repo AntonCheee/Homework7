@@ -2,20 +2,19 @@
 
 namespace Homework7
 {
-    class Archer : Unit
+    public class Archer : Unit
     {
         private const double HP = 120;
         private const double AD = 35;
 
         private const double DODGE_ATTACK_CHANCE = 0.5;
-        private const double UNSUCCESS_DODGE_CHANCE = 1.2;
+        private const double UNSUCCESS_DODGE_DAMAGE = 1.2;
 
         private const double CRITICAL_ATTACK_CHANCE = 0.33;
         private const double CRITICAL_DAMAGE_CHANCE = 2;
 
-        public Archer():base(AD, "Archer" + Randomizer.RandomInt(1, 1000))
+        public Archer() : base(AD, HP)
         {
-            this.Hp = HP;
         }
 
         public override double Attack()
@@ -34,7 +33,7 @@ namespace Homework7
         {
             if (!Randomizer.IsSuccessAction(DODGE_ATTACK_CHANCE))
             {
-                this.Hp -= Math.Round(enemyUnit.Attack() * UNSUCCESS_DODGE_CHANCE, 2);
+                this.Hp -= Math.Round(enemyUnit.Attack() * UNSUCCESS_DODGE_DAMAGE, 2);
             }
         }
     }

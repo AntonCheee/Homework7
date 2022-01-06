@@ -8,8 +8,8 @@ namespace Homework7
 {
     enum FighterType
     {
-        Warrior = 1,
-        Archer = 2,
-        Wizard = 3
+        Warrior,
+        Archer,
+        Wizard
     }
 }
