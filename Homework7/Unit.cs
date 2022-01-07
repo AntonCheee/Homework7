@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Homework7
 {
     public abstract class Unit
@@ -16,10 +11,15 @@ namespace Homework7
 
         public double Ad { get; }
         public double Hp { get; private set; }
-        public string Name { get; }
         public bool IsAlive => this.Hp > 0;
 
-        public abstract double Attack();
-        public abstract void Defense(Unit enemyUnit);
+        protected abstract double Attack();
+        protected abstract double Defense(double enemyUnit);
+        public void Attack(Unit unit)
+        {
+            double currentDamage = Attack();
+            double realDamage = unit.Defense(currentDamage);
+            unit.Hp -= realDamage;
+        }
     }
 }

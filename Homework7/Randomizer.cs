@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Homework7
 {
-    class Randomizer
+    public interface Randomizer
     {
         private static readonly Random random = new Random();
         public static bool RandomBool()
@@ -34,7 +30,7 @@ namespace Homework7
 
         public static bool IsSuccessAction(double chance)
         {
-            return new Random().NextDouble() <= chance;
+            return random.NextDouble() <= chance;
         }
     }
 }

@@ -17,24 +17,26 @@ namespace Homework7
         {
         }
 
-        public override double Attack()
+        protected override double Attack()
         {
             double attackDemage = AD;
 
             if (Randomizer.IsSuccessAction(CRITICAL_ATTACK_CHANCE))
             {
-                attackDemage *= CRITICAL_DAMAGE_CHANCE;
+                Math.Round(attackDemage *= CRITICAL_DAMAGE_CHANCE);
             }
 
             return attackDemage;
         }
 
-        public override void Defense(Unit enemyUnit)
+        protected override double Defense(double damage)
         {
             if (!Randomizer.IsSuccessAction(DODGE_ATTACK_CHANCE))
             {
-                this.Hp -= Math.Round(enemyUnit.Attack() * UNSUCCESS_DODGE_DAMAGE, 2);
+                return Math.Round(damage * UNSUCCESS_DODGE_DAMAGE, 2);
             }
+
+            return 0;
         }
     }
 }

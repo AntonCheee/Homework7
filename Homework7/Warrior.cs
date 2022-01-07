@@ -13,14 +13,14 @@ namespace Homework7
         {
         }
 
-        public override double Attack()
+        protected override double Attack()
         {
            return Math.Round(AD * ATTACK_DAMAGE_PERCENT, 2);
         }
 
-        public override void Defense(Unit enemyUnit)
+        protected override double Defense(double damage)
         {
-            this.Hp -= Math.Round(enemyUnit.Attack() * DEFENCE_DAMAGE_PERCENT, 2);
+            return Math.Round(damage * DEFENCE_DAMAGE_PERCENT, 2);
         }
     }
 }
