@@ -40,7 +40,7 @@ namespace Homework7
             //    Console.WriteLine($"Fighter №{j++}: {winner.GroupFighters[i].Name}, Alive = {winner.GroupFighters[i].IsAlive}, HP = {winner.GroupFighters[i].Hp}");
             //}
 
-            Unit winner = FightLogic.FightOneAgainstAll(20);
+            Unit winner = FightLogic.FightOneAgainstAll(2);
             Console.WriteLine($"Winner {winner.GetType()}, HP={winner.Hp}");
         }
     }

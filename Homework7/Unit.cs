@@ -15,11 +15,11 @@ namespace Homework7
 
         protected abstract double Attack();
         protected abstract double Defense(double enemyUnit);
-        public void Attack(Unit unit)
+        public void AttackEnemy(Unit enemyUnit)
         {
             double currentDamage = Attack();
-            double realDamage = unit.Defense(currentDamage);
-            unit.Hp -= realDamage;
+            double realDamage = enemyUnit.Defense(currentDamage);
+            enemyUnit.Hp -= realDamage;
         }
     }
 }

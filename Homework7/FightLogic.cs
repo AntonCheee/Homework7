@@ -58,11 +58,11 @@ namespace Homework7
         {
             if (Randomizer.RandomBool())
             {
-                fighter1.Attack(fighter2);
+                fighter1.AttackEnemy(fighter2);
             }
             else
             {
-                fighter2.Attack(fighter1);
+                fighter2.AttackEnemy(fighter1);
             }
         }
     }
