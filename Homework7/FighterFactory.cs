@@ -2,7 +2,7 @@
 
 namespace Homework7
 {
-    public class Fighter
+    public class FighterFactory
     {
         public static Unit CreateFighter(FighterType? fighterType = null)
         {
@@ -52,7 +52,7 @@ namespace Homework7
 
             for (int i = 0; i < countFighters; i++)
             {
-                groupFighters.Add(Fighter.CreateFighter());
+                groupFighters.Add(FighterFactory.CreateFighter());
             }
 
             return new Group(groupFighters);

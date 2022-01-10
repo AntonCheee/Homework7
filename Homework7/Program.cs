@@ -6,42 +6,23 @@ namespace Homework7
     {
         static void Main()
         {
-            //Unit winner;
-            //int warriorWins = 0;
-            //int archerWins = 0;
-            //int wizardWins = 0;
 
-            //for (int i = 0; i < 1000; i++)
-            //{
-            //    winner = FightLogic.FightOneOnOne(FighterType.Archer, FighterType.Wizard);
-            //    if (winner is Warrior)
-            //    {
-            //        ++warriorWins;
-            //    }
-            //    if (winner is Archer)
-            //    {
-            //        ++archerWins;
-            //    }
-            //    if (winner is Wizard)
-            //    {
-            //        ++wizardWins;
-            //    }
-            //}
+            Unit unit1 = FighterFactory.CreateFighter(FighterType.Archer);
+            Unit unit2 = FighterFactory.CreateFighter();
+            Unit winner = FightLogic.FightOneOnOne(unit1, unit2);
 
-            //Console.WriteLine("Warrior wins = " + warriorWins);
-            //Console.WriteLine("Archer wins = " + archerWins);
-            //Console.WriteLine("Wizard wins = " + wizardWins);
 
-            //Group winner = FightLogic.FightGroupByGroup(3);
-            //Console.WriteLine($"Winner {winner.GroupName}");
 
-            //for (int i = 0, j = 1; i < winner.GroupFighters.Count; i++)
-            //{
-            //    Console.WriteLine($"Fighter №{j++}: {winner.GroupFighters[i].Name}, Alive = {winner.GroupFighters[i].IsAlive}, HP = {winner.GroupFighters[i].Hp}");
-            //}
+            //int countFightersPerGroup = 10;
+            //Group group1 = FighterFactory.CreateGroup(countFightersPerGroup);
+            //Group group2 = FighterFactory.CreateGroup(countFightersPerGroup);
+            //Group winner = FightLogic.FightGroupByGroup(group1, group2);
 
-            Unit winner = FightLogic.FightOneAgainstAll(2);
-            Console.WriteLine($"Winner {winner.GetType()}, HP={winner.Hp}");
+
+
+            //Group group = FighterFactory.CreateGroup(5);
+            //Unit winner = FightLogic.FightOneAgainstAll(group);
+            //Console.WriteLine($"Winner {winner.GetType()}, HP={winner.Hp}");
         }
     }
 }

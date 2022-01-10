@@ -4,11 +4,8 @@ namespace Homework7
 {
     public class FightLogic
     {
-        public static Unit FightOneOnOne(FighterType? fighter1Type = null, FighterType? fighter2Type = null)
-        {
-            Unit unit1 = fighter1Type != null ? Fighter.CreateFighter(fighter1Type) : Fighter.CreateFighter();
-            Unit unit2 = fighter2Type != null ? Fighter.CreateFighter(fighter2Type) : Fighter.CreateFighter();
-
+        public static Unit FightOneOnOne(Unit unit1, Unit unit2)
+        { 
             Unit winner = unit1;
 
             while (unit1.IsAlive && unit2.IsAlive)
@@ -24,11 +21,8 @@ namespace Homework7
             return winner;
         }
 
-        static Group FightGroupByGroup(int countFightersPerGroup)
+        public static Group FightGroupByGroup(Group group1, Group group2)
         {
-            Group group1 = Fighter.CreateGroup(countFightersPerGroup);
-            Group group2 = Fighter.CreateGroup(countFightersPerGroup);
-
             while (group1.AliveFighters.Count > 0 && group2.AliveFighters.Count > 0)
             {
                 Unit group1Fighter = group1.AliveFighters[Randomizer.RandomInt(0, group1.AliveFighters.Count)];
@@ -40,10 +34,8 @@ namespace Homework7
             return group1.AliveFighters.Count == 0 ? group2 : group1;
         }
 
-        public static Unit FightOneAgainstAll(int countFighters)
+        public static Unit FightOneAgainstAll(Group group)
         {
-            Group group = Fighter.CreateGroup(countFighters);
-
             while (group.AliveFighters.Count > 1)
             {
                 (Unit fighter1, Unit fighter2) pairFighters = Randomizer.RandomUniqPairFighters(group);

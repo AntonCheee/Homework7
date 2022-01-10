@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Homework7
 {
     public abstract class Unit
@@ -19,7 +21,7 @@ namespace Homework7
         {
             double currentDamage = Attack();
             double realDamage = enemyUnit.Defense(currentDamage);
-            enemyUnit.Hp -= realDamage;
+            enemyUnit.Hp = Math.Round(enemyUnit.Hp - realDamage, 2);
         }
     }
 }
